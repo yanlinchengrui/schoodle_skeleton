@@ -2,16 +2,19 @@
 <html>
 
 <head>
+    <!-- EXTERNAL CSS (BOOTSTRAP/MATERIALIZE) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
+    <!-- INTERNAL CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/event.css" type="text/css" />
 
-
+    <!-- DATEPICKER (does not work yet) -->
     <script src="bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <link href="bootstrap-datepicker/css/datepicker.css" rel="stylesheet">
 
@@ -21,39 +24,41 @@
 
 <body>
 
-
+    <!-- MODAL BOX -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">event name here</h5>
-                        <div class="x-btn">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <span aria-hidden="true">&times;</span>
+                    <div class="x-btn">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <label class="pop-up-label" for="pop-up-email">enter email to join event or edit attendance</label>
-                    <input type="text" class="form-control" id="pop-up-email" aria-describedby="inputGroup-sizing-default"
-                        placeholder="Email Address">
+                    <input type="text" class="form-control" id="pop-up-email"
+                        aria-describedby="inputGroup-sizing-default" placeholder="Email Address">
                 </div>
                 <div class="popup-footer">
                     <div class="pop-up-btn">
-                        <button type="button" class="btn btn-secondary" id="close-btn" data-dismiss="modal">Enter</button>
+                        <button type="button" class="btn btn-secondary" id="close-btn"
+                            data-dismiss="modal">Enter</button>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
 
-
+    <!-- NAV BAR -->
     <nav class="navbar navbar-light bg-dark">
         <span class="navbar-brand mb-0 h1 text-white">Schoodle</span>
     </nav>
 
+    <!-- EVENT DETAILS -->
     <main>
         <h3 class="event-page-name">event name here</h3>
         <h6 class="event-page-host">hosted by: Justin</h6>
@@ -90,10 +95,10 @@
         <br>
         <div class="demo-btn">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            JOIN/EDIT
-        </button>
+                JOIN/EDIT
+            </button>
         </div>
-        
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
