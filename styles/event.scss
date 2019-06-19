@@ -1,0 +1,68 @@
+.event-page-name {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.event-page-host {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+.event-page-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+table {
+    margin-top: 32px;
+}
+
+td:nth-child(1) {
+    width: 150px;
+}
+
+.table-date {
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.table-name {
+    padding-left: 13px;
+}
+
+.table-option:hover {
+    background-color: #cde9a4;
+}
+
+.modal {
+    background-color: transparent;
+    max-height: fit-content;
+    width: inherit;
+}
+
+.modal-header {
+    padding-top: 0px;
+}
+
+.pop-up-footer {
+    background-color: #fff;
+    text-align: center;
+    margin: auto;
+}
+
+.pop-up-btn {
+    text-align: center;
+}
+
+.demo-btn {
+    text-align: center;
+}
+
+.pop-up-label {
+    font-size: 1rem;
+}
+
+.x-btn {
+    margin: 10px 0px 0px auto;
+}
