@@ -2,11 +2,12 @@
 <html>
 
 <head>
-    
+
   <!-- EXTERNAL CSS (BOOTSTRAP/MATERIALIZE) -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -19,7 +20,9 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
   <!-- DATEPICKER (does not work yet) -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.css" />
@@ -29,7 +32,7 @@
   <script rel="text/javascript" src="/scripts/app.js"></script>
 
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
 
   <!-- INTERNAL CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -38,8 +41,8 @@
   <!-- CSS FROM LHL -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
- 
-  
+
+
 
   <title>Schoodle</title>
 </head>
@@ -54,30 +57,41 @@
       <br>
       <h2 class="main-page">Create an Event</h2>
       <br>
-      <div class="main-form">
-        <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default"
-          placeholder="What's the occasion?">
-      </div>
-      <div class="main-form">
-        <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default"
-          placeholder="Who's hosting the event?">
-      </div>
-      <!-- <div class="main-form">
-          <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default"
+      <form method="POST" action="/events" id="new-event">
+        <div class="main-form">
+          <input type="text" class="form-control" id="event_name" aria-describedby="inputGroup-sizing-default"
+            placeholder="What's the occasion?">
+        </div>
+        <div class="main-form">
+          <input type="text" class="form-control" id="name" aria-describedby="inputGroup-sizing-default"
+            placeholder="Who's hosting the event?">
+        </div>
+        <div class="main-form">
+          <input type="text" class="form-control" id="description" aria-describedby="inputGroup-sizing-default"
             placeholder="Event description">
-        </div> -->
-      <div class="main-form">
+        </div>
+        <br>
+        <div class="main-form">
           <div class="input-group date" id="thething" data-provide="datepicker">
-              <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-            </div>
-      </div>
-      <div class="main-form">
-        <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default"
-          placeholder="Email Address">
-      </div>
+            <input type="text" class="form-control" id="dates" placeholder="Select up to five dates"><span
+              class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+          </div>
+        </div>
+        <div class="main-form">
+          <input type="text" class="form-control" id="votes_to_win" aria-describedby="inputGroup-sizing-default"
+            placeholder="How many votes will determine the chosen date?">
+        </div>
+        <br>
+        <div class="main-form">
+          <input type="text" class="form-control" id="email" aria-describedby="inputGroup-sizing-default"
+            placeholder="Email Address">
+        </div>
 
-      <br>
-      <button type="button" class="btn btn-dark">Continue</button>
+        <br>
+        <button type="submit" class="btn btn-dark">Continue</button>
+      </form>
+
+
 
     </section>
   </main>

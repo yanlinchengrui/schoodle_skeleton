@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/event.css" type="text/css" />
 
-    <!-- DATEPICKER (does not work yet) -->
-    <script src="bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <link href="bootstrap-datepicker/css/datepicker.css" rel="stylesheet">
-
 
     <title>Schoodle</title>
 </head>
@@ -30,7 +26,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">event name here</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle"><%= event_name %></h5>
                     <div class="x-btn">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -60,37 +56,51 @@
 
     <!-- EVENT DETAILS -->
     <main>
-        <h3 class="event-page-name">event name here</h3>
-        <h6 class="event-page-host">hosted by: Justin</h6>
+        <h3 class="event-page-name"> <%= event_name %> </h3>
+        <h6 class="event-page-host">hosted by: <%= name %></h6>
+        <br>
+        <p class="event-description"> <%= description %> </p>
         <br>
         <p class="event-page-link">http://localhost:8080/e/abc123</p>
-        <table style="width:100%">
-            <tr>
-                <th class="table-name"></th>
-                <th class="table-date">June 19</th>
-                <th class="table-date">June 20</th>
-                <th class="table-date">June 21</th>
-                <th class="table-date">June 22</th>
-                <th class="table-date">June 23</th>
-            </tr>
-            <tr>
-                <td class="table-name">Eric</td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-            </tr>
-            <tr>
-                <td class="table-name">Sylvia</td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-                <td class="table-option"></td>
-            </tr>
-        </table>
 
+        <div class="tableDisplay">
+            <div class="row formRow">
+
+                <div class="col-2 table-name">
+                </div>
+
+                <div class="col-8 row">
+                    <% for(let i=0; i < dateList.length; i++) { %>
+                    <div class="table-date col"><%= dateList[i] %></div>
+                    <% } %>
+                </div>
+
+                <div class="col-2 submit-box">
+                </div>
+
+            </div>
+
+            <!-- host -->
+            <div class="row formRow">
+                <div class="col-2 table-name">
+                    <p class="ppName"><%= name %></p>
+                </div>
+                <div class="col-8 row">
+
+                    <% for(let i=0; i < dateList.length; i++) { %>
+                    <div class="table-option col"></div>
+                    <% } %>
+
+                </div>
+                <div class="col-2 submit-box">
+                    <button type="submit" id="row-submit-btn" class="btn btn-primary">GO</button>
+                </div>
+            </div>
+
+            <!-- participants -->
+            
+
+        </div>
 
         <br>
         <div class="demo-btn">
