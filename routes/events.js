@@ -2,19 +2,56 @@
 
 const express = require('express');
 const router  = express.Router();
+const moment = require('moment');
 
-module.exports = (knex) => { 
+const generateRandomString = () => Math.random().toString(36).substr(2, 8);
 
-  router.get("/", (req, res) => {
-      res.send('Get /');
-  });
+const dividesDatesAndTransferToObject = (dates) => {
+    const rezObj = {};
+    const rez = dates.split(',').map(date => moment(date, 'MM/DD/YYYY').format('YYYY-MM-DD'));
+    rez.forEach((res, i) => rezObj[`date_${i + 1}`] = res);
+    return rezObj;
+}
 
-  router.get("/:id", (req, res) => {
-      res.send(`Get /${req.params.id}`);
-  });
+module.exports = (dataHelper) => { 
 
   router.post("/", (req, res) =>{
-      res.send('Post /');
+
+      console.log(req.body);
+      
+      const mockRez = {
+        host_id: req.body.host_id,
+        event_name: req.body.event_name,
+        event_url: generateRandomString(),
+        votes_to_win: req.body.votes_to_win, 
+        description: req.body.description,
+        ... dividesDatesAndTransferToObject(req.body.dates)
+      }
+
+      const eventId = dataHelper.createEvent(mockRez);
+      eventId.then(eventAndHostID => {
+        const vote = {
+            user_id: eventAndHostID[0].host_id,
+            event_id: eventAndHostID[0].id
+        }
+        const eventVote = dataHelper.createEventVotes(vote);
+        eventVote.then(() => {
+            console.log(vote);
+            res.status(201).send(vote);
+        });
+      });
+      
+  });
+
+  router.post("/:id", (req, res) => {
+
+    const pidPromise = dataHelper.getParticipantIdByEmail(req.body.email);
+    const eidPromise = dataHelper.getEventIdByUrl(req.params.id);
+
+    Promise.all([pidPromise, eidPromise]).then((result) => {
+        console.log(result[0].id, result[1].id);
+    });
+
   });
 
   return router;
