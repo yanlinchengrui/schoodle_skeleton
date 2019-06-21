@@ -73,13 +73,7 @@ app.get('/event', (req, res) => {
     email: "email@email.com",
     votes_to_win: 3
   }
-  let testVars = knex.select('*').from('events').then(function(data){
-    console.log('data', data)
-    return data;
-  });
 
-
-  console.log('testVars', testVars);
   templateVars.dateList = Object.values(templateVars.dates);
 
   res.render('event', templateVars);
