@@ -50,7 +50,7 @@ module.exports = (dataHelper) => {
     Promise.all([pidPromise, eidPromise]).then((result) => {
         console.log(result[0].id, result[1].id);
         dataHelper.updateEventVotes(result[0].id, result[1].id, req.body.dates)
-          .then(res.send("updated"));
+          .then((result) => res.send("updated " + result)).catch((error) => res.status(500).send('server error: ' + error));
     });
   });
   // retrieve all participants going to event
