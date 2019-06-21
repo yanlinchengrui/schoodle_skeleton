@@ -13,15 +13,9 @@ const dividesDatesAndTransferToObject = (dates) => {
   return rezObj;
 }
 
-<<<<<<< HEAD
-module.exports = (dataHelper) => {
-  // create new participants in database
-  router.post("/", (req, res) => {
-=======
 module.exports = (dataHelper) => { 
   // create new participants in database
   router.post("/", (req, res) =>{
->>>>>>> cdda2b7488316134cdb7a577fe17e62082b21932
 
     console.log(req.body);
 
