@@ -73,7 +73,9 @@
 
                 <div class="col-8 row">
                     <% for(let i=0; i < dateList.length; i++) { %>
-                    <div class="table-date col"><%= dateList[i] %></div>
+                        <% if (dateList[i]) { %>
+                            <div class="table-date col"><%= dateList[i] %></div>
+                        <% } %>
                     <% } %>
                 </div>
 
@@ -90,7 +92,9 @@
                 <div class="col-8 row">
 
                     <% for(let i=0; i < dateList.length; i++) { %>
-                    <div class="table-option col"></div>
+                        <% if (dateList[i]) { %>
+                            <div class="table-option col"></div>
+                        <% } %>
                     <% } %>
 
                 </div>

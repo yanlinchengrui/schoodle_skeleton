@@ -13,9 +13,15 @@ const dividesDatesAndTransferToObject = (dates) => {
   return rezObj;
 }
 
+<<<<<<< HEAD
 module.exports = (dataHelper) => {
   // create new participants in database
   router.post("/", (req, res) => {
+=======
+module.exports = (dataHelper) => { 
+  // create new participants in database
+  router.post("/", (req, res) =>{
+>>>>>>> cdda2b7488316134cdb7a577fe17e62082b21932
 
     console.log(req.body);
 
@@ -41,7 +47,6 @@ module.exports = (dataHelper) => {
       });
     });
   });
-
   // update participants selected votes in database
   router.post("/:id", (req, res) => {
 
@@ -54,14 +59,13 @@ module.exports = (dataHelper) => {
         .then(res.send("updated"));
     });
   });
-
   // retrieve all participants going to event
   router.get("/:id", (req, res) => {
     const voteDetailsPromise = dataHelper.getVoteDetails(req.params.id);
-    voteDetailsPromise.then((result) => {
-      console.log(result);
-      res.render('event', {})
-    });
+      voteDetailsPromise.then((result) => {
+        console.log(result);
+        res.status(200).send(result);
+      });
   });
 
   return router;
