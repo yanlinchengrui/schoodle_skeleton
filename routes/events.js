@@ -30,13 +30,18 @@ module.exports = (dataHelper) => {
 
     const eventId = dataHelper.createEvent(mockRez);
     eventId.then(eventAndHostID => {
-      const vote = {
+      const createVote = {
         user_id: eventAndHostID[0].host_id,
         event_id: eventAndHostID[0].id
       }
-      const eventVote = dataHelper.createEventVotes(vote);
+      const vote = {
+        user_id: eventAndHostID[0].host_id,
+        event_id: eventAndHostID[0].id,
+        event_url: eventAndHostID[0].event_url
+      }
+      const eventVote = dataHelper.createEventVotes(createVote);
       eventVote.then(() => {
-        console.log(vote);
+        console.log('vote', vote);
         res.status(201).send(vote);
       });
     });

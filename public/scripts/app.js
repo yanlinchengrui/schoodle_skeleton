@@ -48,8 +48,11 @@ $(document).ready(function () {
       }).done(function(data) {
         console.log('eventdata', eventData);
         console.log(data);
+        window.location.href = `/events/${data.event_url}`;
       })
     });
+
+    
 
   });
 
@@ -57,12 +60,15 @@ $(document).ready(function () {
     event.preventDefault();
     console.log($('#pop-up-name').val(), $('#pop-up-email').val())
 
+    // for now, this only toggles ALL buttons - need to specify it later
     $('#row-submit-btn').css('visibility', 'visible');
   });
 
   $('.table-option').on('click', (event) => {
     console.log('option clicked')
-    $(this).addClass('selected');
+
+    // color change not working
+    $(this).css('background-color', 'green');
   })
 
 });
