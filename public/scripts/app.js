@@ -3,7 +3,7 @@ $(document).ready(function () {
     method: "GET",
     url: "/users"
   }).done((users) => {
-    for(user of users) {
+    for (user of users) {
       $("<div>").text(user.name).appendTo($("body"));
     }
   });
@@ -13,51 +13,46 @@ $(document).ready(function () {
     multidate: 5
   });
 
-
   // SUBMIT FORM
 
   $('#new-event').on('submit', (event) => {
     event.preventDefault();
 
-    let eventName   = $('#event_name').val();
-    let hostName    = $('#name').val();
-    let descrip     = $('#description').val();
-    let dateSelect  = $('#dates').val();
-    let hostEmail   = $('#email').val();
-    let votesWin    = $('#votes_to_win').val();
-
-    // const obj = {
-    //   event_name:   $('#event_name').val(),
-    //   name:         $('#name').val(),
-    //   description:  $('#description').val(),
-    //   dates:        $('#dates').val(),
-    //   email:        $('#email').val(),
-    //   votes_to_win: $('#votes_to_win').val()
-    // }
-
-    console.log(dateSelect.split(','))
-
-    function dateToString(dateInput) {
-      let cut = dateInput.split('/');
-      let monthList = [ "Jan", "Feb", "Mar", "April", "May", "June", 
-      "July", "August", "Sep", "Oct", "Nov", "Dec" ];
-      let temp = Number(cut[0]) - 1;
-      let month = monthList[temp];
-      let day = cut[1];
-      if (day[0] == 0) {
-        return month + ' ' + day[1];
-      } else {
-        return month + ' ' + day;
-      }
+    let participantData = {
+      name: $('#name').val(),
+      email: $('#email').val(),
+      event_name: $('#event_name').val(),
+      votes_to_win: $('#votes_to_win').val(),
+      description: $('#description').val(),
+      dates: $('#dates').val()
     }
 
-    let splitDates = dateSelect.split(',');
-  
+    $.ajax({
+      method: "POST",
+      url: "/participants",
+      data: participantData
+    }).done(function (data) {
+
+      let eventData = {
+        host_id: data,
+        event_name: $('#event_name').val(),
+        votes_to_win: $('#votes_to_win').val(),
+        description: $('#description').val(),
+        dates: $('#dates').val()
+      }
+
+      $.ajax({
+        method: "POST",
+        url: "/events",
+        data: eventData
+      }).done(function(data) {
+        console.log('eventdata', eventData);
+        console.log(data);
+      })
+    });
+
   });
-  
-
-
-
-
 
 });
+
+
