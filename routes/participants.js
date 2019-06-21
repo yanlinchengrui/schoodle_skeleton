@@ -1,23 +1,53 @@
 "use strict";
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (dataHelper) => {
 
   router.post("/", (req, res) => {
     const ifPidExists = dataHelper.getParticipantIdByEmail(req.body.email);
     ifPidExists.then((result) => {
-      if(result) {
+      if (result) {
         res.status(201).send(result.id.toString());
       } else {
         const newParticipantId = dataHelper.createParticipant(req.body.name, req.body.email);
-        newParticipantId.then((id)=> {
+        newParticipantId.then((id) => {
           res.status(201).send(id[0].toString());
         });
       }
     });
   });
+
+  router.post('/:id', (req, res) => {
+    const ifPidExists = dataHelper.getParticipantIdByEmail(req.body.email);
+    ifPidExists.then((result) => {
+      if (result) {
+        res.status(201).send(result.id.toString());
+      } else {
+        const newParticipantId = dataHelper.createParticipant(req.body.name, req.body.email);
+        newParticipantId.then((id) => {
+          // res.status(201).send(id[0].toString());
+          console.log(req.params.id)
+
+          const eventID = dataHelper.getEventIdByUrl(req.params.id);
+          eventID.then((eventIdRes) => {
+            console.log(id[0], eventIdRes.id);
+            const createVote = {
+              user_id: id[0],
+              event_id: eventIdRes.id
+            }
+            const eventVote = dataHelper.createEventVotes(createVote);
+            eventVote.then(() => {
+              console.log('vote', createVote);
+              res.status(201).send(createVote);
+            });
+          })
+
+        });
+      }
+    });
+  })
 
   return router;
 }

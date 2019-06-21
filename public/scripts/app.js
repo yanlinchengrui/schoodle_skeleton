@@ -13,8 +13,7 @@ $(document).ready(function () {
     multidate: 5
   });
 
-  // SUBMIT FORM
-
+  // CREATE EVENT
   $('#new-event').on('submit', (event) => {
     event.preventDefault();
 
@@ -45,32 +44,45 @@ $(document).ready(function () {
         method: "POST",
         url: "/events",
         data: eventData
-      }).done(function(data) {
+      }).done(function (data) {
         console.log('eventdata', eventData);
         console.log(data);
         window.location.href = `/events/${data.event_url}`;
       })
     });
-
-    
-
   });
 
+  // ADD PARTICIPANT
   $('#close-btn').on('click', (event) => {
     event.preventDefault();
     console.log($('#pop-up-name').val(), $('#pop-up-email').val())
-
-    // for now, this only toggles ALL buttons - need to specify it later
-    $('#row-submit-btn').css('visibility', 'visible');
+    let participantData = {
+      name: $('#pop-up-name').val(),
+      email: $('#pop-up-email').val()
+    }
+    $.ajax({
+      method: "POST",
+      url: `/participants${window.location.pathname.substring(7)}`,
+      data: participantData
+    }).done(function (data) {
+      console.log('closebtn data', data);  //
+    })
   });
 
-  $('.table-option').on('click', (event) => {
-    console.log('option clicked')
 
-    // color change not working
-    $(this).css('background-color', 'green');
+  // for now, this only toggles ALL buttons - need to specify it later
+  $('#row-submit-btn').css('visibility', 'visible');
+  // window.location.href = `/events${window.location.pathname.substring(7)}`;
+  // window.stop();
+
+  $('.table-option').on('click', function (event) {
+
+    $(this).toggleClass('selected');
   })
 
+
 });
+
+
 
 

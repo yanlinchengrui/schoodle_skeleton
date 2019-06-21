@@ -53,7 +53,7 @@ module.exports = (dataHelper) => {
     const eidPromise = dataHelper.getEventIdByUrl(req.params.id);
 
     Promise.all([pidPromise, eidPromise]).then((result) => {
-      console.log(result[0].id, result[1].id);
+      console.log('event/post', result[0].id, result[1].id);
       dataHelper.updateEventVotes(result[0].id, result[1].id, req.body.dates)
         .then(res.send("updated"));
     });
@@ -62,23 +62,22 @@ module.exports = (dataHelper) => {
   router.get("/:id", (req, res) => {
     const voteDetailsPromise = dataHelper.getVoteDetails(req.params.id);
     voteDetailsPromise.then((result) => {
-      console.log(result);
-      // res.status(200).send(result);
-      let templateVars = {
-        event_name: "Party Time",
-        name: "Phil",
-        description: "we boutta party",
-        dates: {
-          date_1: "June 21",
-          date_2: "June 22",
-          date_3: "June 24",
-          date_4: "June 25"
-        },
-        email: "email@email.com",
-        votes_to_win: 3
+      let templateVars = result;
+      let datething = result[0];
+      let options = { month: 'short', day: 'numeric'}
+      let dateArr = [
+        datething.date_1, datething.date_2, datething.date_3, datething.date_4, datething.date_5
+      ];
+      let dateDisplay = [];
+      for (let i = 0; i < dateArr.length; i++) {
+        if (dateArr[i]) {
+          dateDisplay.push(dateArr[i].toLocaleDateString('en-US', options))
+        }
       }
-      templateVars.dateList = Object.values(templateVars.dates);
-      res.render('event', templateVars)
+
+      templateVars.dateList = dateDisplay
+      // res.status(201).send(result);            // REMOVE
+      res.render('event', {templateVars: templateVars, dates: dateDisplay})
     });
   });
 
