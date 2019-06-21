@@ -53,6 +53,18 @@ $(document).ready(function () {
 
   });
 
+  $('#close-btn').on('click', (event) => {
+    event.preventDefault();
+    console.log($('#pop-up-name').val(), $('#pop-up-email').val())
+
+    $('#row-submit-btn').css('visibility', 'visible');
+  });
+
+  $('.table-option').on('click', (event) => {
+    console.log('option clicked')
+    $(this).addClass('selected');
+  })
+
 });
 
 

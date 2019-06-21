@@ -13,9 +13,9 @@ const dividesDatesAndTransferToObject = (dates) => {
   return rezObj;
 }
 
-module.exports = (dataHelper) => { 
+module.exports = (dataHelper) => {
   // create new participants in database
-  router.post("/", (req, res) =>{
+  router.post("/", (req, res) => {
 
     console.log(req.body);
 
@@ -56,11 +56,27 @@ module.exports = (dataHelper) => {
   // retrieve all participants going to event
   router.get("/:id", (req, res) => {
     const voteDetailsPromise = dataHelper.getVoteDetails(req.params.id);
-      voteDetailsPromise.then((result) => {
-        console.log(result);
-        res.status(200).send(result);
-      });
+    voteDetailsPromise.then((result) => {
+      console.log(result);
+      // res.status(200).send(result);
+      let templateVars = {
+        event_name: "Party Time",
+        name: "Phil",
+        description: "we boutta party",
+        dates: {
+          date_1: "June 21",
+          date_2: "June 22",
+          date_3: "June 24",
+          date_4: "June 25"
+        },
+        email: "email@email.com",
+        votes_to_win: 3
+      }
+      templateVars.dateList = Object.values(templateVars.dates);
+      res.render('event', templateVars)
+    });
   });
+
 
   return router;
 
