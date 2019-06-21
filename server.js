@@ -52,37 +52,11 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/users", usersRoutes(knex));
 app.use("/participants", participantsRoutes(dataHelper));
-app.use("/events", eventsRoutes(dataHelper));
+app.use("/events/", eventsRoutes(dataHelper));
 
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
-});
-
-app.get('/event', (req, res) => {
-  let templateVars = {
-    event_name: "Party Time",
-    name: "Phil",
-    description: "we boutta party",
-    dates: {
-      date_1: "June 21",
-      date_2: "June 22",
-      date_3: "June 24",
-      date_4: "June 25"
-    },
-    email: "email@email.com",
-    votes_to_win: 3
-  }
-  let testVars = knex.select('*').from('events').then(function(data){
-    console.log('data', data)
-    return data;
-  });
-
-
-  console.log('testVars', testVars);
-  templateVars.dateList = Object.values(templateVars.dates);
-
-  res.render('event', templateVars);
 });
 
 app.listen(PORT, () => {

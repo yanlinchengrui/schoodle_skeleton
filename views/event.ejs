@@ -4,15 +4,39 @@
 <head>
     <!-- EXTERNAL CSS (BOOTSTRAP/MATERIALIZE) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <!-- DATEPICKER -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+
+    <script rel="text/javascript" src="/scripts/app.js"></script>
 
     <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
 
     <!-- INTERNAL CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/event.css" type="text/css" />
+
+    <!-- CSS FROM LHL -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
 
 
     <title>Schoodle</title>
@@ -26,25 +50,30 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle"><%= event_name %></h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle"><%= templateVars[0].event_name %></h5>
                     <div class="x-btn">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <label class="pop-up-label" for="pop-up-email">enter email to join event or edit attendance</label>
-                    <input type="text" class="form-control" id="pop-up-email"
-                        aria-describedby="inputGroup-sizing-default" placeholder="Email Address">
-                </div>
-                <div class="popup-footer">
-                    <div class="pop-up-btn">
-                        <button type="button" class="btn btn-secondary" id="close-btn"
-                            data-dismiss="modal">Enter</button>
+                <form action="/participants/:id" method="POST" id="pop-up-new">
+                    <div class="modal-body">
+                        <label class="pop-up-label" for="pop-up-email">enter name & email to join event or edit
+                            attendance</label>
+                        <input type="text" class="form-control" id="pop-up-name"
+                            aria-describedby="inputGroup-sizing-default" placeholder="Name">
+                        <input type="text" class="form-control" id="pop-up-email"
+                            aria-describedby="inputGroup-sizing-default" placeholder="Email Address">
                     </div>
+                    <div class="popup-footer">
+                        <div class="pop-up-btn">
+                            <button type="button" type="submit" class="btn btn-secondary" id="close-btn"
+                                data-dismiss="modal">Enter</button>
+                        </div>
+                    </div>
+                </form>
 
-                </div>
             </div>
         </div>
     </div>
@@ -56,12 +85,12 @@
 
     <!-- EVENT DETAILS -->
     <main>
-        <h3 class="event-page-name"> <%= event_name %> </h3>
-        <h6 class="event-page-host">hosted by: <%= name %></h6>
+        <h3 class="event-page-name"> <%= templateVars[0].event_name %> </h3>
+        <h6 class="event-page-host">hosted by: <%= templateVars[0].name %></h6>
         <br>
-        <p class="event-description"> <%= description %> </p>
+        <p class="event-description"> <%= templateVars[0].description %> </p>
         <br>
-        <p class="event-page-link">http://localhost:8080/e/abc123</p>
+        <p class="event-page-link">http://localhost:8080/e/<%= templateVars[0].event_url %></p>
 
         <div class="tableDisplay">
             <div class="row formRow">
@@ -70,39 +99,42 @@
                 </div>
 
                 <div class="col-8 row">
-                    <% for(let i=0; i < dateList.length; i++) { %>
-                        <% if (dateList[i]) { %>
-                            <div class="table-date col"><%= dateList[i] %></div>
-                        <% } %>
+                    <% for(let i=0; i <= dates.length; i++) { %>
+                    <% if (dates[i]) { %>
+                    <div class="table-date col"><%= dates[i] %></div>
+                    <% } %>
                     <% } %>
                 </div>
 
                 <div class="col-2 submit-box">
                 </div>
 
-            </div>
-
-            <!-- host -->
-            <div class="row formRow">
-                <div class="col-2 table-name">
-                    <p class="ppName"><%= name %></p>
-                </div>
-                <div class="col-8 row">
-
-                    <% for(let i=0; i < dateList.length; i++) { %>
-                        <% if (dateList[i]) { %>
-                            <div class="table-option col"></div>
-                        <% } %>
-                    <% } %>
-
-                </div>
-                <div class="col-2 submit-box">
-                    <button type="submit" id="row-submit-btn" class="btn btn-primary">GO</button>
-                </div>
             </div>
 
             <!-- participants -->
-            
+            <% for (let j = 0; j < templateVars.length; j++) { %>
+            <div class="row formRow" id=<%= templateVars[j].user_id %>>
+                <div class="col-2 table-name">
+                    <p class="ppName"><%= templateVars[j].name %></p>
+                </div>
+                <div class="col-8 row">
+
+                    <% for (let key in templateVars[j]) { %>
+                        <% if (key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") { %>
+                            <% if (templateVars[j][key]) { %>
+                                <div class="table-option col selected" id= <%= key %>></div>
+                            <% } else { %>
+                                <div class="table-option col" id= <%= key %>></div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+
+            </div>
+            <div class="col-2 submit-box">
+                <button type="submit" id="row-submit-btn" class="btn btn-primary ">GO</button>
+            </div>
+        </div>
+        <% } %>
 
         </div>
 
@@ -114,16 +146,6 @@
         </div>
 
     </main>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 
 </body>
 
