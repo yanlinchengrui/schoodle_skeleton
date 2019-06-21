@@ -40,7 +40,7 @@ module.exports = (dataHelper) => {
             const eventVote = dataHelper.createEventVotes(createVote);
             eventVote.then(() => {
               console.log('vote', createVote);
-              res.status(201).send(createVote);
+              res.redirect('back');
             });
           })
 

@@ -65,6 +65,7 @@ $(document).ready(function () {
       url: `/participants${window.location.pathname.substring(7)}`,
       data: participantData
     }).done(function (data) {
+      location.reload();
       console.log('closebtn data', data);  //
     })
   });
