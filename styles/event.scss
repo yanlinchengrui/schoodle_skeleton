@@ -5,30 +5,38 @@
 
 .event-page-host {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
+.event-description {
+    text-align: center;
+    margin: 10px 0px 5px 0px;
+    font-size: 11pt;
+}
 
 .event-page-link {
     text-align: center;
     margin-top: 10px;
-}
-
-table {
-    margin-top: 32px;
-}
-
-td:nth-child(1) {
-    width: 150px;
+    font-size: 12pt;
 }
 
 .table-date {
     text-align: center;
     font-size: 1.05rem;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    padding-top: 20px !important;
+    // width: 90px;
+}
+
+.table-option {
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    // width: 90px;
 }
 
 .table-name {
-    padding-left: 13px;
+    padding: 15px 15px 15px 13px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    width: 150px !important;
 }
 
 .table-option:hover {
@@ -65,4 +73,34 @@ td:nth-child(1) {
 
 .x-btn {
     margin: 10px 0px 0px auto;
+}
+
+.tableDisplay {
+    width: 120%;
+}
+
+#row-submit-btn {
+    width: 70px;
+    height: 35px;
+    margin: 7px 0px 7px 15px;
+}
+
+.formRow {
+    height: 50px;
+    margin: 0px !important;
+}
+
+.formRow div {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ppName {
+    margin: 15px;
+}
+
+.submit-box {
+    padding: 10px;
+    visibility: hidden;
 }
