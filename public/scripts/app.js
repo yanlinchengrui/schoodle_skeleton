@@ -49,7 +49,7 @@ $(document).ready(function () {
         }, 800)
         $('.main-container').fadeOut(800);
   
-      })
+      });
     });
   });
 
@@ -82,14 +82,6 @@ $(document).ready(function () {
     }
   });
 
-  
-
-
-  // for now, this only toggles ALL buttons - need to specify it later
-  // $('.btn-go').css('visibility', 'visible');
-  // window.location.href = `/events${window.location.pathname.substring(7)}`;
-  // window.stop();
-
   $('.btn-go').on('click', function(event) {
     let email = $(this).parent().parent().attr("id");
     let selectedArray = $(this).parent().parent().find(".selected");
@@ -115,10 +107,8 @@ $(document).ready(function () {
   });
 
   $('.table-option').on('click', function (event) {
-
     $(this).toggleClass('selected');
-  })
-
+  });
 
 });
 
