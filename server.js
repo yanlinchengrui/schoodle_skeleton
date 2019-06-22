@@ -10,16 +10,16 @@ const sass = require("node-sass-middleware");
 const app = express();
 
 const knexConfig = require("./knexfile");
-const knex = require("knex")(knexConfig[ENV]);
-// var knex = require('knex')({
-//   client: 'pg',
-//   connection: {
-//     host : 'localhost',
-//     user : 'development',
-//     password : 'development',
-//     database : 'test_db'
-//   }
-// });
+// const knex = require("knex")(knexConfig[ENV]);
+var knex = require('knex')({
+  client: 'pg',
+  connection: {
+    host : 'localhost',
+    user : 'development',
+    password : 'development',
+    database : 'test_db'
+  }
+});
 const morgan = require('morgan');
 const knexLogger = require('knex-logger');
 

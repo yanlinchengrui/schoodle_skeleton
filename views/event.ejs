@@ -68,8 +68,8 @@
                     </div>
                     <div class="popup-footer">
                         <div class="pop-up-btn">
-                            <button type="button" type="submit" class="btn btn-secondary" id="close-btn"
-                                data-dismiss="modal">Enter</button>
+                            <button type="button" type="submit" class="btn btn-secondary" id="close-btn">Enter</button>
+                            <div class="error-msg"></div>
                         </div>
                     </div>
                 </form>
@@ -118,23 +118,24 @@
                     <p class="ppName"><%= templateVars[j].name %></p>
                 </div>
                 <div class="col-8 row">
-
+                    <% let k = 0; %>
                     <% for (let key in templateVars[j]) { %>
-                        <% if (key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") { %>
-                            <% if (templateVars[j][key]) { %>
-                                <div class="table-option col selected" id= <%= key %>></div>
-                            <% } else { %>
-                                <div class="table-option col" id= <%= key %>></div>
-                            <% } %>
-                        <% } %>
+                    <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
+                    <% if (templateVars[j][key]) { %>
+                    <div class="table-option col selected" id=<%= key %>></div>
+                    <% } else { %>
+                    <div class="table-option col" id=<%= key %>></div>
+                    <% } %>
+                    <% k++ %>
+                    <% } %>
                     <% } %>
 
+                </div>
+                <div class="col-2 submit-box">
+                    <button type="submit" id="row-submit-btn" class="btn btn-primary ">GO</button>
+                </div>
             </div>
-            <div class="col-2 submit-box">
-                <button type="submit" id="row-submit-btn" class="btn btn-primary ">GO</button>
-            </div>
-        </div>
-        <% } %>
+            <% } %>
 
         </div>
 

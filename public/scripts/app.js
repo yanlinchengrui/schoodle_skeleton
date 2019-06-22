@@ -1,11 +1,7 @@
 $(document).ready(function () {
-  $.ajax({
-    method: "GET",
-    url: "/users"
-  }).done((users) => {
-    for (user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
-    }
+  $('.error-msg').hide();
+  $("#modal").modal({
+    dismissible: false
   });
 
   $('#thething').datepicker({
@@ -55,20 +51,33 @@ $(document).ready(function () {
   // ADD PARTICIPANT
   $('#close-btn').on('click', (event) => {
     event.preventDefault();
-    console.log($('#pop-up-name').val(), $('#pop-up-email').val())
-    let participantData = {
-      name: $('#pop-up-name').val(),
-      email: $('#pop-up-email').val()
+  
+    if ($('#pop-up-name').val() === '') {
+      $('.error-msg').text('Name field empty.');
+      $('.error-msg').slideDown(500);
+      $('#pop-up-name').select();
+    } else if ($('#pop-up-email').val() === '') {
+      $('.error-msg').slideDown(500);
+      $('.error-msg').text('Email field empty.');
+      $('#pop-up-name').select();
+    } else {
+      $('.error-msg').slideUp(100);
+      let participantData = {
+        name: $('#pop-up-name').val(),
+        email: $('#pop-up-email').val()
+      }
+      $.ajax({
+        method: "POST",
+        url: `/participants${window.location.pathname.substring(7)}`,
+        data: participantData
+      }).done(function (data) {
+        location.reload();
+        console.log('closebtn data', data);  //
+      })
     }
-    $.ajax({
-      method: "POST",
-      url: `/participants${window.location.pathname.substring(7)}`,
-      data: participantData
-    }).done(function (data) {
-      location.reload();
-      console.log('closebtn data', data);  //
-    })
   });
+
+  
 
 
   // for now, this only toggles ALL buttons - need to specify it later

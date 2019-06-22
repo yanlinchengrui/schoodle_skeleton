@@ -108,4 +108,10 @@
 .selected {
   background-color: #cde9a4;
 }
+
+.error-msg {
+  height: 40px;
+  padding: 15px;
+  color: red;
+}
 /*# sourceMappingURL=event.css.map */
