@@ -1,7 +1,6 @@
-
 html {
   box-sizing: border-box;
-  height: 100vh
+  height: 120vh
 
 }
 *, *:before, *:after {
@@ -9,7 +8,7 @@ html {
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 
@@ -21,16 +20,18 @@ body {
 
 
 main {
-  width: 600px;
+  width: 100%;
   margin: auto;
-  padding-top: 80px;
+  padding-top: 70px;
   padding-bottom: 50px;
   vertical-align: middle;
-  height: 130vh;
-  background-color: #FFFAFA;
+  height: 100vh;
+  background-color: #F0F0F0;
+  text-align: center;
  }
 
 .navbar {
+text-align: center;
   position: fixed;
   height: 70px;
   width: 100%;
@@ -38,7 +39,9 @@ main {
 }
 
 .navbar-brand {
-  height: 70px;
-  font-size: 1.7em;
+  height: 80px;
+  font-size: 2em;
   vertical-align: middle;
+  margin: auto;
 }
+

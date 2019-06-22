@@ -1,6 +1,27 @@
+.event-details {
+  width: 100%;
+  height: 280px;
+  background-color: #fff;
+  margin: auto;
+  padding: 35px;
+}
+
+.table-section {
+  width: 800px;
+  min-height: 400px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(69, 68, 68, 0.2), 0 6px 10px 0 rgba(130, 129, 129, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(69, 68, 68, 0.2), 0 6px 10px 0 rgba(130, 129, 129, 0.19);
+  text-align: center;
+  margin: 20px auto auto auto;
+  background-color: #fff;
+  padding-bottom: 30px;
+}
+
 .event-page-name {
   text-align: center;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .event-page-host {
@@ -29,6 +50,7 @@
 
 .table-option {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  width: 80%;
 }
 
 .table-name {
@@ -65,6 +87,7 @@
 
 .demo-btn {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .pop-up-label {
@@ -82,7 +105,7 @@
 .btn-go {
   width: 70px;
   height: 35px;
-  margin: 7px 0px 7px 15px;
+  margin: 5px 20px 5px auto;
 }
 
 .formRow {
@@ -98,6 +121,7 @@
 
 .ppName {
   margin: 15px;
+  text-align: left;
 }
 
 .submit-box {
