@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 
   // for now, this only toggles ALL buttons - need to specify it later
-  $('.btn-go').css('visibility', 'visible');
+  // $('.btn-go').css('visibility', 'visible');
   // window.location.href = `/events${window.location.pathname.substring(7)}`;
   // window.stop();
 

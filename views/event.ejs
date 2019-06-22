@@ -132,9 +132,11 @@
                     <% } %>
 
                 </div>
-                <div class="col-2 submit-box">
-                    <button type="submit" class="btn btn-primary btn-go">GO</button>
-                </div>
+                <% if(loginParticipant === templateVars[j].user_id) { %>
+                    <div class="col-2 submit-box">
+                        <button type="submit" class="btn btn-primary btn-go">GO</button>
+                    </div>
+                <% } %>
             </div>
             <% } %>
 

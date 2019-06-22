@@ -9,6 +9,7 @@ module.exports = (dataHelper) => {
     const ifPidExists = dataHelper.getParticipantIdByEmail(req.body.email);
     ifPidExists.then((result) => {
       if (result) {
+        console.log(req.session.participant_id);
         res.status(201).send(result.id.toString());
       } else {
         const newParticipantId = dataHelper.createParticipant(req.body.name, req.body.email);
@@ -23,6 +24,7 @@ module.exports = (dataHelper) => {
     const ifPidExists = dataHelper.getParticipantIdByEmail(req.body.email);
     ifPidExists.then((result) => {
       if (result) {
+        req.session.participant_id = result.id;
         res.status(201).send(result.id.toString());
       } else {
         const newParticipantId = dataHelper.createParticipant(req.body.name, req.body.email);
@@ -40,6 +42,7 @@ module.exports = (dataHelper) => {
             const eventVote = dataHelper.createEventVotes(createVote);
             eventVote.then(() => {
               console.log('vote', createVote);
+              req.session.participant_id = id[0];
               res.redirect('back');
             });
           })
