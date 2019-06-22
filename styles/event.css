@@ -15,6 +15,7 @@
   text-align: center;
   margin: 20px auto auto auto;
   background-color: #fff;
+  padding-bottom: 30px;
 }
 
 .event-page-name {
@@ -86,6 +87,7 @@
 
 .demo-btn {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .pop-up-label {

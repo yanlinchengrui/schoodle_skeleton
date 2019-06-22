@@ -126,31 +126,23 @@
                         <% for (let key in templateVars[j]) { %>
                         <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
                         <% if (templateVars[j][key]) { %>
-                            <div class="table-option col selected" id=<%= key %>></div>
+                        <div class="table-option col selected" id=<%= key %>></div>
                         <% } else { %>
-                            <div class="table-option col" id=<%= key %>></div>
+                        <div class="table-option col" id=<%= key %>></div>
                         <% } %>
                         <% k++; %>
                         <% } %>
                         <% } %>
-
                     </div>
+
+                    <% if(loginParticipant === templateVars[j].user_id) { %>
                     <div class="col-2 submit-box">
                         <button type="submit" class="btn btn-primary btn-go">GO</button>
                     </div>
+                    <% } %>
                 </div>
-<<<<<<< HEAD
-                <% } %>
-=======
-                <% if(loginParticipant === templateVars[j].user_id) { %>
-                    <div class="col-2 submit-box">
-                        <button type="submit" class="btn btn-primary btn-go">GO</button>
-                    </div>
-                <% } %>
-            </div>
-            <% } %>
->>>>>>> 975131078c75c2ff0b777c08ac18a46347ef4f1a
 
+                <% } %>
             </div>
             <br>
             <br>
