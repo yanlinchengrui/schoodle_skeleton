@@ -87,6 +87,11 @@
     <main>
         <section class="event-details">
             <h3 class="event-page-name"> <%= templateVars[0].event_name %> </h3>
+            <h4>
+                <% if (templateVars[0].chosen_date) { %>
+                <%= `Winner: ${templateVars[0].chosen_date}!`%>
+                <% } %>
+            </h4>
             <h6 class="event-page-host">hosted by: <%= templateVars[0].name %></h6>
             <br>
             <p class="event-description"> <%= templateVars[0].description %> </p>
