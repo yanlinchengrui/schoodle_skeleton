@@ -1,4 +1,5 @@
 
+
 exports.up = function(knex, Promise) {
   return Promise.all ([
     knex.schema.createTable('participants', function(table) {
@@ -18,7 +19,7 @@ exports.up = function(knex, Promise) {
       table.date('date_3');
       table.date('date_4');
       table.date('date_5');
-      table.date('chosen_date');
+      table.string('chosen_date');
     }),
     knex.schema.createTable('participant_event_votes', function(table) {
       table.increments('id');
