@@ -4,9 +4,13 @@ $(document).ready(function () {
     dismissible: false
   });
 
+  var date = new Date();
+  date.setDate(date.getDate());
+
   $('#thething').datepicker({
     multidate: 5,
-    orientation: "top left"
+    orientation: "top left",
+    startDate: date
   });
 
   // CREATE EVENT
@@ -44,11 +48,11 @@ $(document).ready(function () {
       }).done(function (data) {
         console.log('eventdata', eventData);
         console.log(data);
-        window.setTimeout(function(){
+        window.setTimeout(function () {
           window.location.href = `/events/${data.event_url}`;
         }, 800)
         $('.main-container').fadeOut(800);
-  
+
       });
     });
   });
@@ -56,7 +60,7 @@ $(document).ready(function () {
   // ADD PARTICIPANT
   $('#close-btn').on('click', (event) => {
     event.preventDefault();
-  
+
     if ($('#pop-up-name').val() === '') {
       $('.error-msg').text('Name field empty.');
       $('.error-msg').slideDown(500);
@@ -82,7 +86,7 @@ $(document).ready(function () {
     }
   });
 
-  $('.btn-go').on('click', function(event) {
+  $('.btn-go').on('click', function (event) {
     let email = $(this).parent().parent().attr("id");
     let selectedArray = $(this).parent().parent().find(".selected");
     let event_url = window.location.pathname.substring(8);
@@ -97,15 +101,15 @@ $(document).ready(function () {
       email,
       event_url
     };
-    selectedArray.each(function() {
+    selectedArray.each(function () {
       postObj['dates'][$(this).attr("id")] = '1111-11-11';
     });
     //console.log(postObj);
-    $.post(event_url, postObj, function(data){
+    $.post(event_url, postObj, function (data) {
       console.log('postObj console', data, postObj);
-      
+    }).done(function(){
+      location.reload(true);
     });
-
   });
 
   $('.table-option').on('click', function (event) {
