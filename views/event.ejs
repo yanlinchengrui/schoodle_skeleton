@@ -118,18 +118,6 @@
                     <p class="ppName"><%= templateVars[j].name %></p>
                 </div>
                 <div class="col-8 row">
-<<<<<<< HEAD
-                    <% let k = 0; %>
-                    <% for (let key in templateVars[j]) { %>
-                    <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
-                    <% if (templateVars[j][key]) { %>
-                    <div class="table-option col selected" id=<%= key %>></div>
-                    <% } else { %>
-                    <div class="table-option col" id=<%= key %>></div>
-                    <% } %>
-                    <% k++ %>
-                    <% } %>
-=======
 
                     <% let k = 0; %>
                     <% for (let key in templateVars[j]) { %>
@@ -141,16 +129,11 @@
                             <% } %>
                             <% k++; %>
                         <% } %>
->>>>>>> master
                     <% } %>
 
                 </div>
                 <div class="col-2 submit-box">
-<<<<<<< HEAD
-                    <button type="submit" id="row-submit-btn" class="btn btn-primary ">GO</button>
-=======
                     <button type="submit" class="btn btn-primary btn-go">GO</button>
->>>>>>> master
                 </div>
             </div>
             <% } %>
