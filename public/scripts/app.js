@@ -102,8 +102,10 @@ $(document).ready(function () {
     });
     //console.log(postObj);
     $.post(event_url, postObj, function(data){
-      console.log(data, postObj);
+      console.log('postObj console', data, postObj);
+      
     });
+
   });
 
   $('.table-option').on('click', function (event) {
