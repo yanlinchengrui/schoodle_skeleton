@@ -90,7 +90,7 @@
         <br>
         <p class="event-description"> <%= templateVars[0].description %> </p>
         <br>
-        <p class="event-page-link">http://localhost:8080/e/<%= templateVars[0].event_url %></p>
+        <p class="event-page-link">http://localhost:8080/events/<%= templateVars[0].event_url %></p>
 
         <div class="tableDisplay">
             <div class="row formRow">
@@ -113,11 +113,12 @@
 
             <!-- participants -->
             <% for (let j = 0; j < templateVars.length; j++) { %>
-            <div class="row formRow" id=<%= templateVars[j].user_id %>>
+            <div class="row formRow" id=<%= templateVars[j].email %>>
                 <div class="col-2 table-name">
                     <p class="ppName"><%= templateVars[j].name %></p>
                 </div>
                 <div class="col-8 row">
+<<<<<<< HEAD
                     <% let k = 0; %>
                     <% for (let key in templateVars[j]) { %>
                     <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
@@ -128,11 +129,28 @@
                     <% } %>
                     <% k++ %>
                     <% } %>
+=======
+
+                    <% let k = 0; %>
+                    <% for (let key in templateVars[j]) { %>
+                        <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
+                            <% if (templateVars[j][key]) { %>
+                                <div class="table-option col selected" id= <%= key %>></div>
+                            <% } else { %>
+                                <div class="table-option col" id= <%= key %>></div>
+                            <% } %>
+                            <% k++; %>
+                        <% } %>
+>>>>>>> master
                     <% } %>
 
                 </div>
                 <div class="col-2 submit-box">
+<<<<<<< HEAD
                     <button type="submit" id="row-submit-btn" class="btn btn-primary ">GO</button>
+=======
+                    <button type="submit" class="btn btn-primary btn-go">GO</button>
+>>>>>>> master
                 </div>
             </div>
             <% } %>
