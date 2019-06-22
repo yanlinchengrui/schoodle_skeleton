@@ -86,24 +86,31 @@
     <!-- EVENT DETAILS -->
     <main>
         <section class="event-details">
-            <h3 class="event-page-name"> <%= templateVars[0].event_name %> </h3>
-            <h4>
-                <% if (templateVars[0].chosen_date) { %>
-                <%= `Winner: ${templateVars[0].chosen_date}!`%>
-                <% } %>
-            </h4>
-            <h6 class="event-page-host">hosted by: <%= templateVars[0].name %></h6>
-            <br>
-            <p class="event-description"> <%= templateVars[0].description %> </p>
-            <br>
-            <p class="event-page-link">http://localhost:8080/events/<%= templateVars[0].event_url %></p>
+            <div class="event-details-container">
+                <div class="detail-section">
+                    <p class="event-page-name"> <%= templateVars[0].event_name %> </p>
+
+                    <p class="event-page-host">hosted by: <%= templateVars[0].name %></p>
+                    <br>
+                    <p class="event-description"> <%= templateVars[0].description %> </p>
+                    <br>
+                    <p class="event-page-link">http://localhost:8080/events/<%= templateVars[0].event_url %></p>
+                </div>
+                <div class="winner">
+                    <p>
+                        <% if (templateVars[0].chosen_date) { %>
+                        <%= `Winner: ${templateVars[0].chosen_date}!`%>
+                        <% } %>
+                    </p>
+                </div>
+            </div>
         </section>
 
         <section class="table-section">
             <div class="tableDisplay">
                 <div class="row formRow">
 
-                    <div class="col-2 table-name">
+                    <div class="col-2 table-date">
                     </div>
 
                     <div class="col-8 row">

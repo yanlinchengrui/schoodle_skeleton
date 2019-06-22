@@ -13,8 +13,8 @@
   padding: 0px;
   margin: 70px auto 0px auto;
   background-color: #fff;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(69, 68, 68, 0.2), 0 6px 25px 0 rgba(130, 129, 129, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(69, 68, 68, 0.2), 0 6px 25px 0 rgba(130, 129, 129, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(45, 45, 45, 0.2), 5px 6px 10px 5px rgba(75, 75, 75, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(45, 45, 45, 0.2), 5px 6px 10px 5px rgba(75, 75, 75, 0.19);
   border-radius: 12px;
 }
 
@@ -30,8 +30,8 @@
 #section-left {
   float: left;
   width: 430px;
-  background: -webkit-gradient(linear, right top, left top, from(#bbebe7), color-stop(#afe4e0), to(#AAE3DE));
-  background: linear-gradient(to left, #bbebe7, #afe4e0, #AAE3DE);
+  background: -webkit-gradient(linear, right top, left top, from(#c2ede9), color-stop(#afe4e0), to(#AAE3DE));
+  background: linear-gradient(to left, #c2ede9, #afe4e0, #AAE3DE);
   height: 100%;
   vertical-align: middle;
   text-align: center;
