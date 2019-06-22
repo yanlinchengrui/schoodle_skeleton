@@ -49,18 +49,15 @@
 }
 
 .table-option {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   width: 80%;
+  cursor: pointer;
 }
 
 .table-name {
   padding: 15px 15px 15px 13px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   width: 150px !important;
-}
-
-.table-option:hover {
-  background-color: #cde9a4;
 }
 
 .modal {
@@ -136,5 +133,17 @@
   height: 40px;
   padding: 15px;
   color: red;
+}
+
+.btn-go:active {
+  position: relative;
+  top: 1px;
+}
+
+.btn-go:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
 }
 /*# sourceMappingURL=event.css.map */
