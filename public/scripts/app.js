@@ -5,13 +5,14 @@ $(document).ready(function () {
   });
 
   $('#thething').datepicker({
-    clearBtn: true,
-    multidate: 5
+    multidate: 5,
+    orientation: "top left"
   });
 
   // CREATE EVENT
   $('#new-event').on('submit', (event) => {
     event.preventDefault();
+
 
     let participantData = {
       name: $('#name').val(),
@@ -43,7 +44,11 @@ $(document).ready(function () {
       }).done(function (data) {
         console.log('eventdata', eventData);
         console.log(data);
-        window.location.href = `/events/${data.event_url}`;
+        window.setTimeout(function(){
+          window.location.href = `/events/${data.event_url}`;
+        }, 800)
+        $('.main-container').fadeOut(800);
+  
       })
     });
   });

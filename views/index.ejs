@@ -29,7 +29,10 @@
   <script rel="text/javascript" src="/scripts/app.js"></script>
 
   <!-- GOOGLE FONT -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME (ICONS) -->
+  <script src="https://kit.fontawesome.com/57542fd59d.js"></script>
 
   <!-- INTERNAL CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -51,42 +54,57 @@
 
   <main>
     <section class="main-container">
-      <br>
-      <h2 class="main-page">Create an Event</h2>
-      <br>
-      <form method="POST" action="/events" id="new-event">
-        <div class="main-form">
-          <input type="text" class="form-control" id="event_name" aria-describedby="inputGroup-sizing-default"
-            placeholder="What's the occasion?">
-        </div>
-        <div class="main-form">
-          <input type="text" class="form-control" id="name" aria-describedby="inputGroup-sizing-default"
-            placeholder="Who's hosting the event?">
-        </div>
-        <div class="main-form">
-          <input type="text" class="form-control" id="description" aria-describedby="inputGroup-sizing-default"
-            placeholder="Event description">
-        </div>
-        <br>
-        <div class="main-form">
-          <div class="input-group date" id="thething" data-provide="datepicker">
-            <input type="text" class="form-control" id="dates" placeholder="Select up to five dates"><span
-              class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-          </div>
-        </div>
-        <div class="main-form">
-          <input type="text" class="form-control" id="votes_to_win" aria-describedby="inputGroup-sizing-default"
-            placeholder="How many votes will determine the chosen date?">
-        </div>
-        <br>
-        <div class="main-form">
-          <input type="text" class="form-control" id="email" aria-describedby="inputGroup-sizing-default"
-            placeholder="Email Address">
-        </div>
 
-        <br>
-        <button type="submit" class="btn btn-dark">Continue</button>
-      </form>
+      <div id="section-left">
+        <i class="fas fa-calendar-day"></i>
+        <i class="fas fa-calendar-check"></i>
+        <i class="fas fa-calendar-times"></i>
+      </div>
+      <div id="section-right">
+
+        <form method="POST" action="/events" id="new-event">
+
+          <h2 class="main-page">Create an Event</h2>
+
+          <div class="main-form">
+            <input type="text" class="form-control" id="event_name" aria-describedby="inputGroup-sizing-default"
+              placeholder="What's the occasion?">
+          </div>
+          <div class="main-form">
+            <input type="text" class="form-control" id="name" aria-describedby="inputGroup-sizing-default"
+              placeholder="Who's hosting the event?">
+          </div>
+          <div class="main-form">
+            <input type="text" class="form-control" id="description" aria-describedby="inputGroup-sizing-default"
+              placeholder="Event description">
+          </div>
+          <br>
+          <div class="main-form">
+            <div class="input-group date" id="thething" data-provide="datepicker">
+              <input type="text" class="form-control" id="dates" placeholder="Select up to five dates"><span
+                class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+          </div>
+          <div class="main-form">
+            <input type="text" class="form-control" id="votes_to_win" aria-describedby="inputGroup-sizing-default"
+              placeholder="Votes">
+          </div>
+          <br>
+          <br>
+          <br>
+          <div class="main-form">
+            <input type="text" class="form-control" id="email" aria-describedby="inputGroup-sizing-default"
+              placeholder="Email Address">
+          </div>
+
+          <br>
+
+          <button type="submit" class="btn btn-dark">Continue</button>
+        </form>
+      </div>
+
+
+
 
 
 

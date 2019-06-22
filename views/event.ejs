@@ -28,7 +28,7 @@
     <script rel="text/javascript" src="/scripts/app.js"></script>
 
     <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
 
     <!-- INTERNAL CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -85,67 +85,71 @@
 
     <!-- EVENT DETAILS -->
     <main>
-        <h3 class="event-page-name"> <%= templateVars[0].event_name %> </h3>
-        <h6 class="event-page-host">hosted by: <%= templateVars[0].name %></h6>
-        <br>
-        <p class="event-description"> <%= templateVars[0].description %> </p>
-        <br>
-        <p class="event-page-link">http://localhost:8080/events/<%= templateVars[0].event_url %></p>
+        <section class="event-details">
+            <h3 class="event-page-name"> <%= templateVars[0].event_name %> </h3>
+            <h6 class="event-page-host">hosted by: <%= templateVars[0].name %></h6>
+            <br>
+            <p class="event-description"> <%= templateVars[0].description %> </p>
+            <br>
+            <p class="event-page-link">http://localhost:8080/events/<%= templateVars[0].event_url %></p>
+        </section>
 
-        <div class="tableDisplay">
-            <div class="row formRow">
+        <section class="table-section">
+            <div class="tableDisplay">
+                <div class="row formRow">
 
-                <div class="col-2 table-name">
-                </div>
+                    <div class="col-2 table-name">
+                    </div>
 
-                <div class="col-8 row">
-                    <% for(let i=0; i <= dates.length; i++) { %>
-                    <% if (dates[i]) { %>
-                    <div class="table-date col"><%= dates[i] %></div>
-                    <% } %>
-                    <% } %>
-                </div>
-
-                <div class="col-2 submit-box">
-                </div>
-
-            </div>
-
-            <!-- participants -->
-            <% for (let j = 0; j < templateVars.length; j++) { %>
-            <div class="row formRow" id=<%= templateVars[j].email %>>
-                <div class="col-2 table-name">
-                    <p class="ppName"><%= templateVars[j].name %></p>
-                </div>
-                <div class="col-8 row">
-
-                    <% let k = 0; %>
-                    <% for (let key in templateVars[j]) { %>
-                        <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
-                            <% if (templateVars[j][key]) { %>
-                                <div class="table-option col selected" id= <%= key %>></div>
-                            <% } else { %>
-                                <div class="table-option col" id= <%= key %>></div>
-                            <% } %>
-                            <% k++; %>
+                    <div class="col-8 row">
+                        <% for(let i=0; i <= dates.length; i++) { %>
+                        <% if (dates[i]) { %>
+                        <div class="table-date col"><%= dates[i] %></div>
                         <% } %>
-                    <% } %>
+                        <% } %>
+                    </div>
+
+                    <div class="col-2 submit-box">
+                    </div>
 
                 </div>
-                <div class="col-2 submit-box">
-                    <button type="submit" class="btn btn-primary btn-go">GO</button>
+
+                <!-- participants -->
+                <% for (let j = 0; j < templateVars.length; j++) { %>
+                <div class="row formRow" id=<%= templateVars[j].email %>>
+                    <div class="col-2 table-name">
+                        <p class="ppName"><%= templateVars[j].name %></p>
+                    </div>
+                    <div class="col-8 row">
+
+                        <% let k = 0; %>
+                        <% for (let key in templateVars[j]) { %>
+                        <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
+                        <% if (templateVars[j][key]) { %>
+                            <div class="table-option col selected" id=<%= key %>></div>
+                        <% } else { %>
+                            <div class="table-option col" id=<%= key %>></div>
+                        <% } %>
+                        <% k++; %>
+                        <% } %>
+                        <% } %>
+
+                    </div>
+                    <div class="col-2 submit-box">
+                        <button type="submit" class="btn btn-primary btn-go">GO</button>
+                    </div>
                 </div>
+                <% } %>
+
             </div>
-            <% } %>
-
-        </div>
-
-        <br>
-        <div class="demo-btn">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                JOIN/EDIT
-            </button>
-        </div>
+            <br>
+            <br>
+            <div class="demo-btn">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    JOIN/EDIT
+                </button>
+            </div>
+        </section>
 
     </main>
 
