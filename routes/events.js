@@ -77,7 +77,7 @@ module.exports = (dataHelper) => {
 
       templateVars.dateList = dateDisplay
       // res.status(201).send(result);            // REMOVE
-      res.render('event', {templateVars: templateVars, dates: dateDisplay})
+      res.render('event', {templateVars: templateVars, dates: dateDisplay, loginParticipant: req.session.participant_id})
     });
   });
 
