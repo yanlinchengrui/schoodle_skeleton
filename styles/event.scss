@@ -13,7 +13,7 @@
 
 .event-details-container {
     width: 700px;
-    margin:auto
+    margin:auto;
 }
 
 .table-section{
@@ -36,7 +36,6 @@
 }
 
 .winner {
-    vertical-align: middle;
     margin: 130px auto auto auto;
     float: right;
     font-size: 2rem;
@@ -183,4 +182,5 @@
 
 .winner-text {
     display: none;
+    text-align: center;
 }

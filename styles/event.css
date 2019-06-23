@@ -37,7 +37,6 @@
 }
 
 .winner {
-  vertical-align: middle;
   margin: 130px auto auto auto;
   float: right;
   font-size: 2rem;
@@ -187,5 +186,6 @@
 
 .winner-text {
   display: none;
+  text-align: center;
 }
 /*# sourceMappingURL=event.css.map */

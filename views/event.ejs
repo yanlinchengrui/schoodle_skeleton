@@ -88,7 +88,7 @@
 
     <!-- EVENT DETAILS -->
     <main>
-        <section class="event-details">
+        <div class="event-details">
             <div class="event-details-container">
                 <div class="detail-section">
                     <p class="event-page-name"> <%= templateVars[0].event_name %> </p>
@@ -102,14 +102,15 @@
                 <div class="winner">
                     <!-- <p> -->
                         <% if (templateVars[0].chosen_date) { %>
-                            <p class = "winner-text">
-                                <%= `Winner: ${templateVars[0].chosen_date}!`%>
-                            </p>
+                            <div class = "winner-text">
+                                <p>Winner:</p>
+                                <p> <%= templateVars[0].chosen_date %> </p>
+                            </div>
                         <% } %>
                     <!-- </p> -->
                 </div>
             </div>
-        </section>
+        </div>
 
         <section class="table-section">
             <div class="tableDisplay">
