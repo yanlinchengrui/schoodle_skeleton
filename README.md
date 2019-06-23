@@ -27,3 +27,13 @@
 
 - Node 5.10.x or above
 - NPM 3.8.x or above
+- Body-parser 1.15.x or above
+- Cookie-session 1.3.x or above
+- Dotenv 2.0.x or above
+- EJS 2.4.x or above
+- Express 4.13.x or above
+- Knex 0.11.x or above
+- Moment 2.24.x or above
+- PG 6.0.x or above
+
+## Screenshots
