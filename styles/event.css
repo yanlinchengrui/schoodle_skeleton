@@ -1,10 +1,10 @@
 .event-details {
   width: 95%;
   height: 320px;
-  background: -webkit-gradient(linear, right top, left top, from(#b9ede9), color-stop(#a6dcd7), color-stop(#91d2cc), color-stop(#91d2cc), color-stop(#a6dcd7), to(#b9ede9));
-  background: linear-gradient(to left, #b9ede9, #a6dcd7, #91d2cc, #91d2cc, #a6dcd7, #b9ede9);
+  background: -webkit-gradient(linear, right top, left top, from(#b9ede9), color-stop(#a6dcd7), color-stop(#91d2cc), color-stop(#91d2cc), color-stop(#91d2cc), color-stop(#a6dcd7), to(#b9ede9));
+  background: linear-gradient(to left, #b9ede9, #a6dcd7, #91d2cc, #91d2cc, #91d2cc, #a6dcd7, #b9ede9);
   margin: auto;
-  padding: 20px;
+  padding: 17px;
   text-align: left;
   color: #fff;
   border-bottom-left-radius: 15px;
@@ -25,7 +25,7 @@
   -webkit-box-shadow: 0 4px 8px 0 rgba(45, 45, 45, 0.2), 5px 6px 10px 5px rgba(75, 75, 75, 0.19);
           box-shadow: 0 4px 8px 0 rgba(45, 45, 45, 0.2), 5px 6px 10px 5px rgba(75, 75, 75, 0.19);
   text-align: center;
-  margin: 20px auto auto auto;
+  margin: 15px auto auto auto;
   background-color: #fff;
   padding-bottom: 30px;
   padding-right: 20px;
@@ -46,7 +46,7 @@
 
 .event-page-name {
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 3.2rem;
   font-weight: 700;
 }
@@ -77,6 +77,7 @@
   border-radius: 5px;
   width: 80%;
   cursor: pointer;
+  text-align: center;
 }
 
 .table-name {
@@ -171,5 +172,11 @@
   transition: 0.3s;
   -webkit-transform: scale(1.15);
   transform: scale(1.15);
+}
+
+.fas {
+  color: #99c45b;
+  margin-top: 13px;
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=event.css.map */

@@ -30,6 +30,9 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
 
+    <!-- FONT AWESOME (ICONS) -->
+    <script src="https://kit.fontawesome.com/57542fd59d.js"></script>
+
     <!-- INTERNAL CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/event.css" type="text/css" />
@@ -138,7 +141,7 @@
                         <% for (let key in templateVars[j]) { %>
                         <% if ((key === "selected_date_1" || key === "selected_date_2" || key === "selected_date_3" || key === "selected_date_4" || key === "selected_date_5") && k < dates.length) { %>
                         <% if (templateVars[j][key]) { %>
-                        <div class="table-option col selected" id=<%= key %>></div>
+                        <div class="table-option col selected" id=<%= key %>><i class="fas fa-check"></i></div>
                         <% } else { %>
                         <div class="table-option col" id=<%= key %>></div>
                         <% } %>
