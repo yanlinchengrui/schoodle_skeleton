@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $('.error-msg').hide();
+
   $("#modal").modal({
     dismissible: false
   });
@@ -116,6 +117,8 @@ $(document).ready(function () {
     $(this).toggleClass('selected');
     $(this).children().toggle()
   });
+
+  $('.winner-text').slideDown(1000);
 
 });
 

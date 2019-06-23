@@ -184,4 +184,8 @@
   margin-top: 13px;
   font-size: 1.5rem;
 }
+
+.winner-text {
+  display: none;
+}
 /*# sourceMappingURL=event.css.map */

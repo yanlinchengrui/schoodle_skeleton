@@ -100,11 +100,13 @@
                     <p class="event-page-link">http://localhost:8080/events/<%= templateVars[0].event_url %></p>
                 </div>
                 <div class="winner">
-                    <p>
+                    <!-- <p> -->
                         <% if (templateVars[0].chosen_date) { %>
-                        <%= `Winner: ${templateVars[0].chosen_date}!`%>
+                            <p class = "winner-text">
+                                <%= `Winner: ${templateVars[0].chosen_date}!`%>
+                            </p>
                         <% } %>
-                    </p>
+                    <!-- </p> -->
                 </div>
             </div>
         </section>
