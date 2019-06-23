@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
 const express = require('express');
 const router = express.Router();
 
 module.exports = (dataHelper) => {
 
-  router.post("/", (req, res) => {
+  router.post('/', (req, res) => {
     const ifPidExists = dataHelper.getParticipantIdByEmail(req.body.email);
     ifPidExists.then((result) => {
       if (result) {
@@ -50,7 +50,6 @@ module.exports = (dataHelper) => {
               const eventVote = dataHelper.createEventVotes(createVote);
               eventVote.then(() => {
                 changeName.then(() => {
-                  //res.status(201).send(createVote.user_id);
                   res.redirect('back');
                 });
               });
@@ -64,7 +63,6 @@ module.exports = (dataHelper) => {
             createVote.user_id = id[0];
             const eventVote = dataHelper.createEventVotes(createVote);
             eventVote.then(() => {
-              //res.status(201).send(createVote.user_id);
               res.redirect('back');
             });
           });

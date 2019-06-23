@@ -1,23 +1,22 @@
 $(document).ready(function () {
   $('.error-msg').hide();
 
-  $("#modal").modal({
+  $('#modal').modal({
     dismissible: false
   });
 
-  var date = new Date();
+  let date = new Date();
   date.setDate(date.getDate());
 
   $('#thething').datepicker({
     multidate: 5,
-    orientation: "top left",
+    orientation: 'top left',
     startDate: date
   });
 
   // CREATE EVENT
   $('#new-event').on('submit', (event) => {
     event.preventDefault();
-
 
     let participantData = {
       name: $('#name').val(),
@@ -27,9 +26,8 @@ $(document).ready(function () {
       description: $('#description').val(),
       dates: $('#dates').val()
     }
-
     $.ajax({
-      method: "POST",
+      method: 'POST',
       url: "/participants",
       data: participantData
     }).done(function (data) {
@@ -41,19 +39,15 @@ $(document).ready(function () {
         description: $('#description').val(),
         dates: $('#dates').val()
       }
-
       $.ajax({
         method: "POST",
         url: "/events",
         data: eventData
       }).done(function (data) {
-        console.log('eventdata', eventData);
-        console.log(data);
         window.setTimeout(function () {
           window.location.href = `/events/${data.event_url}`;
         }, 800)
         $('.main-container').fadeOut(800);
-
       });
     });
   });
@@ -77,19 +71,19 @@ $(document).ready(function () {
         email: $('#pop-up-email').val()
       }
       $.ajax({
-        method: "POST",
+        method: 'POST',
         url: `/participants${window.location.pathname.substring(7)}`,
         data: participantData
       }).done(function (data) {
         location.reload();
-        console.log('closebtn data', data);  //
       })
     }
   });
 
+  // SUBMIT AVAILABLE DATES
   $('.btn-go').on('click', function (event) {
-    let email = $(this).parent().parent().attr("id");
-    let selectedArray = $(this).parent().parent().find(".selected");
+    let email = $(this).parent().parent().attr('id');
+    let selectedArray = $(this).parent().parent().find('.selected');
     let event_url = window.location.pathname.substring(8);
     let postObj = {
       dates: {
@@ -105,23 +99,19 @@ $(document).ready(function () {
     selectedArray.each(function () {
       postObj['dates'][$(this).attr("id")] = '1111-11-11';
     });
-    //console.log(postObj);
     $.post(event_url, postObj, function (data) {
-      console.log('postObj console', data, postObj);
     }).done(function(){
       location.reload(true);
     });
   });
 
+  // SELECT CELL
   $('.table-option').on('click', function (event) {
     $(this).toggleClass('selected');
     $(this).children().toggle()
   });
 
+  // DISPLAY WINNER
   $('.winner-text').slideDown(1000);
 
 });
-
-
-
-

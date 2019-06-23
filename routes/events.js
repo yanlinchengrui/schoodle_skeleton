@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const express = require('express');
 const router = express.Router();
@@ -14,10 +14,9 @@ const dividesDatesAndTransferToObject = (dates) => {
 }
 
 module.exports = (dataHelper) => {
-  // create new participants in database
-  router.post("/", (req, res) => {
 
-    console.log(req.body);
+  // create new participants in database
+  router.post('/', (req, res) => {
 
     const mockRez = {
       host_id: req.body.host_id,
@@ -41,25 +40,25 @@ module.exports = (dataHelper) => {
       }
       const eventVote = dataHelper.createEventVotes(createVote);
       eventVote.then(() => {
-        console.log('vote', vote);
         res.status(201).send(vote);
       });
     });
   });
+
   // update participants selected votes in database
-  router.post("/:id", (req, res) => {
+  router.post('/:id', (req, res) => {
 
     const pidPromise = dataHelper.getParticipantIdByEmail(req.body.email);
     const eidPromise = dataHelper.getEventIdByUrl(req.params.id);
 
     Promise.all([pidPromise, eidPromise]).then((result) => {
-        console.log(result[0].id, result[1].id);
         dataHelper.updateEventVotes(result[0].id, result[1].id, req.body.dates)
-          .then((result) => res.send("updated " + result)).catch((error) => res.status(500).send('server error: ' + error));
+          .then((result) => res.send('updated ' + result)).catch((error) => res.status(500).send('server error: ' + error));
     });
   });
+
   // retrieve all participants going to event
-  router.get("/:id", (req, res) => {
+  router.get('/:id', (req, res) => {
     const voteDetailsPromise = dataHelper.getVoteDetails(req.params.id);
     voteDetailsPromise.then((result) => {
       let templateVars = result;
@@ -74,13 +73,10 @@ module.exports = (dataHelper) => {
           dateDisplay.push(dateArr[i].toLocaleDateString('en-US', options))
         }
       }
-
       templateVars.dateList = dateDisplay
-      // res.status(201).send(result);            // REMOVE
       res.render('event', {templateVars: templateVars, dates: dateDisplay, loginParticipant: req.session.participant_id})
     });
   });
-
 
   return router;
 

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
   <!-- EXTERNAL CSS (BOOTSTRAP/MATERIALIZE) -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -16,15 +14,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 
   <!-- DATEPICKER -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-
 
   <script rel="text/javascript" src="/scripts/app.js"></script>
 
@@ -42,8 +37,6 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
 
-
-
   <title>Schoodle</title>
 </head>
 
@@ -51,68 +44,52 @@
   <nav class="navbar navbar-light bg-dark">
     <span class="navbar-brand mb-0 h1 text-white"><a href="http://localhost:8080/">Schoodle</a></span>
   </nav>
-
   <main>
     <section class="main-container">
-
       <div id="section-left">
         <i class="fas fa-calendar-day"></i>
         <i class="fas fa-calendar-check"></i>
         <i class="fas fa-calendar-times"></i>
       </div>
       <div id="section-right">
-
         <form method="POST" action="/events" id="new-event">
-
           <h2 class="main-page">Create an Event</h2>
-
           <div class="main-form">
             <input type="text" class="form-control" id="event_name" aria-describedby="inputGroup-sizing-default"
-              placeholder="What's the occasion?" autocomplete="off" required/>
+              placeholder="What's the occasion?" autocomplete="off" required />
           </div>
           <div class="main-form">
             <input type="text" class="form-control" id="name" aria-describedby="inputGroup-sizing-default"
-              placeholder="Who's hosting the event?" autocomplete="off" required/>
+              placeholder="Who's hosting the event?" autocomplete="off" required />
           </div>
           <div class="main-form">
             <input type="text" class="form-control" id="description" aria-describedby="inputGroup-sizing-default"
-              placeholder="Event description" autocomplete="off" required/>
+              placeholder="Event description" autocomplete="off" required />
           </div>
           <br>
           <div class="main-form">
             <div class="input-group date" id="thething" data-provide="datepicker">
-              <input type="text" class="form-control" id="dates" placeholder="Select up to five dates" autocomplete="off" required/><span
-                class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+              <input type="text" class="form-control" id="dates" placeholder="Select up to five dates"
+                autocomplete="off" required /><span class="input-group-addon"><i
+                  class="glyphicon glyphicon-th"></i></span>
             </div>
           </div>
           <div class="main-form">
             <input type="text" class="form-control" id="votes_to_win" aria-describedby="inputGroup-sizing-default"
-              placeholder="Votes" autocomplete="off" required/>
+              placeholder="Votes" autocomplete="off" required />
           </div>
           <br>
           <br>
           <br>
           <div class="main-form">
             <input type="email" class="form-control" id="email" aria-describedby="inputGroup-sizing-default"
-              placeholder="Email Address" autocomplete="off" required/>
+              placeholder="Email Address" autocomplete="off" required />
           </div>
-
           <br>
-
           <button type="submit" class="btn btn-dark">Continue</button>
         </form>
       </div>
-
-
-
-
-
-
     </section>
   </main>
-
-
-
 </body>
-
 </html>
