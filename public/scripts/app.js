@@ -114,6 +114,7 @@ $(document).ready(function () {
 
   $('.table-option').on('click', function (event) {
     $(this).toggleClass('selected');
+    $(this).children().toggle()
   });
 
 });
