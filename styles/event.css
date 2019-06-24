@@ -38,7 +38,7 @@
 }
 
 .winner {
-  position: relative;
+  /* position: relative; */
   width: 200px;
   word-wrap: break-word;
   margin: 30px 20px auto auto;

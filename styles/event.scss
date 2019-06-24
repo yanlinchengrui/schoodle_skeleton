@@ -1,7 +1,6 @@
 .event-details {
     width: 95%;
     height: 320px;
-    // background-color: #323232;
     background: linear-gradient(to left,rgb(185, 237, 233), rgb(166, 220, 215), rgb(145, 210, 204),rgb(145, 210, 204), rgb(145, 210, 204),rgb(166, 220, 215), rgb(185, 237, 233));
     margin: auto;
     padding: 17px;
@@ -37,14 +36,13 @@
 }
 
 .winner {
-    position: relative;
-    width: 200px;
+    width: 250px;
     word-wrap: break-word;
-    margin: 30px 20px auto auto;
+    margin: 20px 20px 0 auto;
     float: right;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 700;
-    text-shadow: #eee 0px 0px 0.5px;
+    text-shadow: #eee 0px 0px 0.5px, #eee 0px 0px 0.5px, #eee 0px 0px 0.5px;
 }
 
 .event-page-name {
@@ -58,19 +56,19 @@
 .event-page-host {
     margin: 10px 0 0 0;
     font-size: 1.3rem;
-    text-shadow: #eee 0px 0px 0.5px;
+    text-shadow: #eee 0px 0px 0.5px, #eee 0px 0px 0.5px;
 }
 
 .event-description {
     margin: 0px 0px 5px 0px;
     font-size: 1.1rem;
-    text-shadow: #eee 0px 0px 0.5px;
+    text-shadow: #eee 0px 0px 0.5px, #eee 0px 0px 0.5px;
 }
 
 .event-page-link {
     margin-top: 5px;
     font-size: 1.2rem;
-    text-shadow: #eee 0px 0px 0.5px;
+    text-shadow: #eee 0px 0px 0.5px, #eee 0px 0px 0.5px;
 }
 
 .table-date {
