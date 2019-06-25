@@ -31,3 +31,7 @@ Schoodle is an event polling app where friends can create events and have their 
 - PG 6.0.x or above
 
 ## Screenshots
+!["Screenshot of main page"](https://github.com/yanlinchengrui/schoodle_skeleton/blob/master/public/docs/index.png)
+!["Screenshot of created event"](https://github.com/yanlinchengrui/schoodle_skeleton/blob/master/public/docs/table1.png)
+!["Screenshot of adding a participant"](https://github.com/yanlinchengrui/schoodle_skeleton/blob/master/public/docs/table2.png)
+!["Screenshot of final event page"](https://github.com/yanlinchengrui/schoodle_skeleton/blob/master/public/docs/table3.png)
